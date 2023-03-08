@@ -1,5 +1,6 @@
 package pages;
 
+import libs.TestData;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -30,27 +31,55 @@ public class LoginPage extends ParentPage {
         return "/login.php?redirect=index.php&";               // check with original??????????
     }
 
-    public void openLoginPage() {
+
+
+    public LoginPage openLoginPage() {
         try {
             webDriver.get(base_url + getRelativeURL());
-            logger.info("Toloka LoginPage is opened");
+            loggerExam.info("Toloka LoginPage is opened");
         } catch (Exception e) {
-            logger.error("Can't open Toloka Login Page" + e); //Write message into log-file + data from Exception
+            loggerExam.error("Can't open Toloka Login Page" + e); //Write message into log-file + data from Exception
             Assert.fail("Can't open Toloka Login Page" + e); //Write message into console + data from Exception
         }
+        return this;
+    }
+
+    public HomePage fillingLoginFormWithValidCred() {
+        enterUserNameIntoInputLogin(TestData.VALID_LOGIN);
+        enterPasswordIntoPasswordField(TestData.VALID_PASSWORD);
+        clickOnLoginButton();
+        return new HomePage(webDriver);
     }
 
     public void enterUserNameIntoInputLogin(String userName) {
         enterTextIntoElement(inputUserNameOrEmail, userName);
     }
 
-    public void enterPasswordIntoPasswordField(String password) {
-        enterTextIntoElement(inputPassword, password);
+    public void enterPasswordIntoPasswordField(String userName) {
+        enterTextIntoElement(inputUserNameOrEmail, userName);
     }
 
     public void clickOnLoginButton() {
         clickOnElement(buttonLogin);
     }
+
+
+
+//    public LoginPage enterUserNameIntoInputLoginWithReturn(String userName) {     //  if not use then DELETE!
+//        enterTextIntoElement(inputUserNameOrEmail, userName);
+//        return this;
+//    }
+//
+//    public LoginPage enterPasswordIntoPasswordFieldWithReturn(String password) {    //  if not use then DELETE!
+//        enterTextIntoElement(inputPassword, password);
+//        return this;
+//    }
+
+//    public HomePage clickOnLoginButton() {                                          //  if not use then DELETE!
+//        clickOnElement(buttonLogin);
+//        return HomePage;
+//    }
+
 
 
 
