@@ -11,7 +11,7 @@ public class ProfilePage extends ParentPage{
     @FindBy (xpath = ".//input[@type='submit' and @class='button']")
     private WebElement buttonEditYourProfile;
 
-    private String textAriaOccupation = ".//span[contains(text(), 'Рід занять')]//..//..//td[2]//b//span, '%s')]";
+    private String textAriaOccupation = ".//tbody//tr[6]//td[2]//span[@class='gen' and contains(text(), '%s')]";
 
 
 

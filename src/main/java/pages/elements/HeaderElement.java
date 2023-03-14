@@ -8,12 +8,18 @@ import org.openqa.selenium.support.FindBy;
 import pages.CommonActionsWithElements;
 import pages.HomePage;
 import pages.ProfilePage;
+import pages.RegistrationPage;
 
 
 public class HeaderElement extends CommonActionsWithElements {
 
     @FindBy (xpath = ".//a[contains(text(), 'Профіль')]")
     private WebElement buttonProfile;
+
+    @FindBy (xpath = ".//a[@rel='nofollow' and contains(text(), 'Вихід')]")
+    private WebElement buttonExit;
+
+
 
     private String buttonEnterWithLoginName = ".//li//a[@rel='nofollow' and contains(text(), '%s')]";
 
@@ -39,6 +45,11 @@ public class HeaderElement extends CommonActionsWithElements {
     public ProfilePage clickOnProfileButton() {
         clickOnElement(buttonProfile);
         return new ProfilePage(webDriver);
+    }
+
+
+    public boolean isButtonExitDisplayed() {
+        return isObjectDisplayed(buttonExit);
     }
 
 

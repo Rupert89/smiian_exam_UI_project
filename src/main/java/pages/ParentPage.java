@@ -5,12 +5,12 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 abstract public class ParentPage extends CommonActionsWithElements {
 
-    protected String base_url = "https://https://toloka.to";
+    protected String base_url = "https://toloka.to";
 
 
     public ParentPage(WebDriver webDriver) {
@@ -28,6 +28,10 @@ abstract public class ParentPage extends CommonActionsWithElements {
     protected void checkURL() {
         Assert.assertEquals("Invalid page", base_url + getRelativeURL() , webDriver.getCurrentUrl());
     }
+
+//    protected  void checkUrlWithWait() {
+//        doWithWait(base_url, getRelativeURL());
+//    }
 
 
     /**

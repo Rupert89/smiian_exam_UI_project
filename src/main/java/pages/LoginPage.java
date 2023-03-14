@@ -56,30 +56,12 @@ public class LoginPage extends ParentPage {
     }
 
     public void enterPasswordIntoPasswordField(String userName) {
-        enterTextIntoElement(inputUserNameOrEmail, userName);
+        enterTextIntoElement(inputPassword, userName);
     }
 
     public void clickOnLoginButton() {
         clickOnElement(buttonLogin);
     }
-
-
-
-//    public LoginPage enterUserNameIntoInputLoginWithReturn(String userName) {     //  if not use then DELETE!
-//        enterTextIntoElement(inputUserNameOrEmail, userName);
-//        return this;
-//    }
-//
-//    public LoginPage enterPasswordIntoPasswordFieldWithReturn(String password) {    //  if not use then DELETE!
-//        enterTextIntoElement(inputPassword, password);
-//        return this;
-//    }
-
-//    public HomePage clickOnLoginButton() {                                          //  if not use then DELETE!
-//        clickOnElement(buttonLogin);
-//        return HomePage;
-//    }
-
 
 
 

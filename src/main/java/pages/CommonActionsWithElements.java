@@ -76,6 +76,20 @@ public class CommonActionsWithElements {
         }
     }
 
+    public static boolean isObjectDisplayed(WebElement webElement) {
+        try {
+            return webElement.isDisplayed();
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+//    public WebElement doWithWait (String baseUrl, String relativeUrl) {
+//        webDriverWait10.until(ExpectedConditions.
+//                visibilityOf(Assert.assertEquals("Invalid page",
+//                        baseUrl + relativeUrl , webDriver.getCurrentUrl())));
+//    }
+
 
 
 

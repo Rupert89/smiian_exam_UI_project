@@ -23,10 +23,12 @@ public class BaseTest {
     protected WebDriver webDriver;
     Logger logger = Logger.getLogger(getClass()); //logger from apache
 
-    protected LoginPage loginPage; // написати
+    protected LoginPage loginPage;
     protected HomePage homePage;
     protected ProfilePage profilePage;
     protected EditProfilePage editProfilePage;
+    protected RegistrationPage registrationPage;
+    protected SearchPage searchPage;
 
 
 //    protected HeaderElement headerElement;
@@ -45,6 +47,8 @@ public class BaseTest {
         homePage = new HomePage(webDriver);
         profilePage = new ProfilePage(webDriver);
         editProfilePage = new EditProfilePage(webDriver);
+        registrationPage = new RegistrationPage(webDriver);
+        searchPage = new SearchPage(webDriver);
 
     }
 
