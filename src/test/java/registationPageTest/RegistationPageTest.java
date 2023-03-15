@@ -12,7 +12,7 @@ public class RegistationPageTest extends BaseTest {
                 .openRegistrationPage()
                 .enterExistLogin(TestData.EXIST_LOGIN)
                 .clickOnCheckLoginButton()
-                .checkIsNotAvailableMessageAppeared()
-                ;
+             .checkIsNotAvailableMessageAppeared()
+        ;
     }
 }

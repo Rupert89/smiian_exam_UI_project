@@ -1,6 +1,7 @@
 package pages;
 
 import org.junit.Assert;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,18 +14,17 @@ public class SearchPage extends ParentPage {
 
 //    @FindBy (xpath = ".//input[@id='nm' and @name='nm']")
 //    private WebElement inputSearch;
-//
+
     @FindBy (xpath = ".//a[contains(text(), 'наступна')]")
     private WebElement buttonNext;
-//
+
     @FindBy (xpath = ".//a[contains(text(), 'попередня')]")
     private WebElement buttonPrevious;
-//
-//    @FindBy (xpath = ".//table[4]//*//a[@href and contains(text(), '1')]")
-//    private WebElement buttonOneNotCurrent;
-//
-//    @FindBy (xpath = "")
-//    private WebElement ;
+
+    @FindBy (xpath = ".//span[@class='navigation']//b")
+    private WebElement indicatorCurrentPage;
+
+    private String indicatorNotCurrentPage = ".//span[@class='navigation']//a[contains(text(), '%s')]";
 
 
     private HeaderElement headerElement = new HeaderElement(webDriver);
@@ -71,6 +71,15 @@ public class SearchPage extends ParentPage {
     public SearchPage checkIsPreviousButtonAppeared() {
         isElementDisplayed(buttonPrevious);
         return this;
+    }
+
+    public SearchPage checkCurrentIndicatorNumber(String indicatorNumber){
+        Assert.assertEquals("Wrong indicator number", indicatorNumber, indicatorCurrentPage.getText());
+        return this;
+    }
+
+    public WebElement checkIndicatorNumberText(String indicatorText){
+        return webDriver.findElement(By.xpath(String.format(indicatorNotCurrentPage, indicatorText)));
     }
 
 

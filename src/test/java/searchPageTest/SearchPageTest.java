@@ -9,8 +9,11 @@ public class SearchPageTest extends BaseTest {
     public void nextButtonWorkCheck() {
         searchPage
                 .openRegistrationPage()
+             .checkCurrentIndicatorNumber("1")
                 .clickOnNextButton()
-                .checkIsPreviousButtonAppeared()
+             .checkIsPreviousButtonAppeared()
+             .checkCurrentIndicatorNumber("2")
+                .checkIndicatorNumberText("1")
                 ;
 
     }

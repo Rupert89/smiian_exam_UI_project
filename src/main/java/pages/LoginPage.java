@@ -28,7 +28,7 @@ public class LoginPage extends ParentPage {
 
     @Override
     String getRelativeURL() {
-        return "/login.php?redirect=index.php&";               // check with original??????????
+        return "/login.php?redirect=index.php&";
     }
 
 
