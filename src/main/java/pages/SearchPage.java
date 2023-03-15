@@ -78,9 +78,17 @@ public class SearchPage extends ParentPage {
         return this;
     }
 
-    public WebElement checkIndicatorNumberText(String indicatorText){
+    public SearchPage checkIsElementContainText(String indicatorNumber) {
+        Assert.assertTrue("Element is not displayed", isElementDisplayed(getIndicatorPageByNumber(indicatorNumber)));
+        return this;
+    }
+
+    public WebElement getIndicatorPageByNumber(String indicatorText){
         return webDriver.findElement(By.xpath(String.format(indicatorNotCurrentPage, indicatorText)));
     }
+
+
+
 
 
 

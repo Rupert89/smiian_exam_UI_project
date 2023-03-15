@@ -13,7 +13,7 @@ public class SearchPageTest extends BaseTest {
                 .clickOnNextButton()
              .checkIsPreviousButtonAppeared()
              .checkCurrentIndicatorNumber("2")
-                .checkIndicatorNumberText("1")
+                .checkIsElementContainText("1")
                 ;
 
     }
