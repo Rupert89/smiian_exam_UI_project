@@ -43,7 +43,7 @@ public class SearchPage extends ParentPage {
     public HeaderElement getHeaderElement() { return headerElement; }
 
 
-        public SearchPage openRegistrationPage() {
+        public SearchPage openSearchPage() {
         LoginPage loginPage = new LoginPage(webDriver);
         loginPage.openLoginPage();
         if(!headerElement.isButtonExitDisplayed()) {

@@ -8,12 +8,12 @@ public class SearchPageTest extends BaseTest {
     @Test
     public void nextButtonWorkCheck() {
         searchPage
-                .openRegistrationPage()
+                .openSearchPage()
              .checkCurrentIndicatorNumber("1")
                 .clickOnNextButton()
              .checkIsPreviousButtonAppeared()
              .checkCurrentIndicatorNumber("2")
-                .checkIsElementContainText("1")
+             .checkIsElementContainText("1")
                 ;
 
     }

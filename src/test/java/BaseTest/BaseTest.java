@@ -29,6 +29,9 @@ public class BaseTest {
     protected EditProfilePage editProfilePage;
     protected RegistrationPage registrationPage;
     protected SearchPage searchPage;
+    protected SearchAndOrderPage searchAndOrderPage;
+    protected CreateNewTopicPage createNewTopicPage;
+    protected PostPage postPage;
 
 
 //    protected HeaderElement headerElement;
@@ -49,6 +52,9 @@ public class BaseTest {
         editProfilePage = new EditProfilePage(webDriver);
         registrationPage = new RegistrationPage(webDriver);
         searchPage = new SearchPage(webDriver);
+        searchAndOrderPage = new SearchAndOrderPage(webDriver);
+        createNewTopicPage = new CreateNewTopicPage(webDriver);
+        postPage = new PostPage(webDriver);
 
     }
 

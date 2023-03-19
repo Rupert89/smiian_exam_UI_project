@@ -100,6 +100,8 @@ public class CommonActionsWithElements {
 
 
 
+
+
     protected void printErrorAndStopTest (Exception e) {
         loggerExam.error("Can't work with element" + e);
         Assert.fail("Can't work with element" + e);

@@ -11,4 +11,7 @@ public interface ConfigHiddenProperties extends Config {
     String occupationText();
 
     String existLogin();
+
+    String topicText();
+    String messageText();
 }

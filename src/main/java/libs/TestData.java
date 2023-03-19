@@ -12,6 +12,8 @@ public class TestData {
 
     public final static String EXIST_LOGIN = System.getProperty("existLogin", configHiddenProperties.existLogin());
 
+    public final static String TOPIC_TEXT = System.getProperty("topicText", configHiddenProperties.topicText());
+    public final static String MESSAGE_TEXT = System.getProperty("messageText", configHiddenProperties.messageText());
 
 
 }
