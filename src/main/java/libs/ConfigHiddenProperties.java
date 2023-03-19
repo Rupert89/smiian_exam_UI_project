@@ -14,4 +14,5 @@ public interface ConfigHiddenProperties extends Config {
 
     String topicText();
     String messageText();
+
 }

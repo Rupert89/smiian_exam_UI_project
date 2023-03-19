@@ -12,6 +12,8 @@ public class EditProfilePage extends ParentPage {
     @FindBy (xpath = ".//input[@type='submit' and @name='submit']")
     private WebElement buttonSubmit;
 
+    @FindBy (xpath = ".//input[@type='radio' and @name='viewemail' and @value='1']")
+    private WebElement radioButtonViewEmailYes;
 
 
 
@@ -35,5 +37,9 @@ public class EditProfilePage extends ParentPage {
         return new HomePage(webDriver);
     }
 
+    public EditProfilePage clickOnViewEmailYesRadioButton() {
+        clickOnRadioButton(radioButtonViewEmailYes);
+        return this;
+    }
 
 }

@@ -92,6 +92,28 @@ public class CommonActionsWithElements {
 
 
 
+    public void clickOnRadioButton(WebElement webElement) {
+        if (webElement.getAttribute("checked").equals("checked") == true) {
+            webElement.click();
+            loggerExam.info("RadioButton was checked");
+        } else {
+            loggerExam.info("RadioButton is already checked");
+        }
+    }
+
+
+//    public boolean getElementAttribute(WebElement webElement, String attributeName) {
+//        if (webElement.getAttribute(attributeName).equals("check")) {
+//            return true;
+//        } else {
+//            return false;
+//        }
+//    }
+
+
+
+
+
 
 
 

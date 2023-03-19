@@ -8,7 +8,7 @@ import org.junit.Test;
 public class SearchAndOrderTest extends BaseTest {
 
     @Test
-    public void newTopicPreviewCheck() {
+    public void newTopicPreviewAndPostCheck() {
         searchAndOrderPage
                 .openSearchAndOrderPage()
                 .clickOnNewTopicButton()
