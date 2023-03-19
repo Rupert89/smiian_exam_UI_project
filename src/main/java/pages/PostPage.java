@@ -5,7 +5,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import pages.elements.HeaderElement;
 
 public class PostPage extends ParentPage {
 
@@ -54,7 +53,7 @@ public class PostPage extends ParentPage {
         return webDriver.findElement(By.xpath(String.format(bodyMessageText, messageText)));
     }
 
-    public SearchAndOrderPage clickOnEditYourProfileButton() {
+    public SearchAndOrderPage clickOnDeletePostButton() {
         clickOnElement(buttonDeleteMessage);
         return new SearchAndOrderPage(webDriver);
     }

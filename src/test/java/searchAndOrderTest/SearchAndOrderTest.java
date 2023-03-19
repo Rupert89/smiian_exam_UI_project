@@ -33,7 +33,7 @@ public class SearchAndOrderTest extends BaseTest {
                 .openProfilePage()
                 .clickOnSearchAndOrderDropDownOption()
                 .clickOnElementByTopicTitle(TestData.TOPIC_TEXT)
-                .clickOnEditYourProfileButton()
+                .clickOnDeletePostButton()
                 ;
     }
 }
