@@ -21,12 +21,11 @@ public class ProfilePageTest extends BaseTest {
     public void emailContactIsVisible() {
         profilePage
                 .openProfilePage()
-//                .clickOnEditYourProfileButton()
-//                .getHeaderElement().checkIsElementContainText(TestData.NAME_OF_USER)
-//                .getHeaderElement().clickOnProfileButton()
                 .clickOnEditYourProfileButton()
                 .clickOnViewEmailYesRadioButton()
                 .clickOnSubmitButton()
+                .getHeaderElement().clickOnProfileButton()
+             .checkIsUsersEmailButtonDisplayed()
         ;
     }
 

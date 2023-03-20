@@ -15,6 +15,9 @@ public class ProfilePage extends ParentPage{
     @FindBy (xpath = ".//option[@value='13']")
     private WebElement dropDownOptionSearchAndOrder;
 
+    @FindBy (xpath = ".getHeaderElement().clickOnProfileButton()")
+    private WebElement buttonUsersEmail;
+
     private String textAriaOccupation = ".//tbody//tr[6]//td[2]//span[@class='gen' and contains(text(), '%s')]";
 
 
@@ -73,6 +76,11 @@ public class ProfilePage extends ParentPage{
     public SearchAndOrderPage clickOnSearchAndOrderDropDownOption() {
         clickOnElement(dropDownOptionSearchAndOrder);
         return new SearchAndOrderPage(webDriver);
+    }
+
+    public ProfilePage checkIsUsersEmailButtonDisplayed() {
+        Assert.assertTrue("Element is not displayed", isElementDisplayed(buttonUsersEmail));
+        return this;
     }
 
 

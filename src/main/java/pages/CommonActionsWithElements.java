@@ -102,13 +102,6 @@ public class CommonActionsWithElements {
     }
 
 
-//    public boolean getElementAttribute(WebElement webElement, String attributeName) {
-//        if (webElement.getAttribute(attributeName).equals("check")) {
-//            return true;
-//        } else {
-//            return false;
-//        }
-//    }
 
 
 
