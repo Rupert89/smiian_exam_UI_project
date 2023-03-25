@@ -38,8 +38,9 @@ public class EditProfilePage extends ParentPage {
     }
 
     public EditProfilePage clickOnViewEmailYesRadioButton() {
-        clickOnRadioButton(radioButtonViewEmailYes);
+        clickOnRadioButtonByAttribute(radioButtonViewEmailYes, "checked");
         return this;
     }
+
 
 }

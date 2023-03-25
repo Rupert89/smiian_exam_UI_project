@@ -12,9 +12,6 @@ public class SearchPage extends ParentPage {
     @FindBy (xpath = ".//input[@type='submit' and @class='liteoption']")
     private WebElement buttonSearch;
 
-//    @FindBy (xpath = ".//input[@id='nm' and @name='nm']")
-//    private WebElement inputSearch;
-
     @FindBy (xpath = ".//a[contains(text(), 'наступна')]")
     private WebElement buttonNext;
 
@@ -27,7 +24,9 @@ public class SearchPage extends ParentPage {
     private String indicatorNotCurrentPage = ".//span[@class='navigation']//a[contains(text(), '%s')]";
 
 
+
     private HeaderElement headerElement = new HeaderElement(webDriver);
+
 
 
     public SearchPage(WebDriver webDriver) {
@@ -40,18 +39,19 @@ public class SearchPage extends ParentPage {
     }
 
 
-    public HeaderElement getHeaderElement() { return headerElement; }
 
 
-        public SearchPage openSearchPage() {
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.openLoginPage();
-        if(!headerElement.isButtonExitDisplayed()) {
-            loginPage.fillingLoginFormWithValidCred();
+    public SearchPage openSearchPage() {
+        try {
+            webDriver.get(base_url + getRelativeURL());
+            loggerExam.info("SearchPage is opened");
+        } catch (Exception e) {
+            loggerExam.error("Can't open Search Page" + e);
+            Assert.fail("Can't open Search Page" + e);
         }
-        checkIsRedirectToSearchPage();
         return this;
     }
+
 
     public SearchPage checkIsRedirectToSearchPage() {
         checkURL();
@@ -61,6 +61,7 @@ public class SearchPage extends ParentPage {
     public boolean isButtonSearchDisplayed() {
         return isObjectDisplayed(buttonSearch);
     }
+
 
 
     public SearchPage clickOnNextButton() {
@@ -86,11 +87,5 @@ public class SearchPage extends ParentPage {
     public WebElement getIndicatorPageByNumber(String indicatorText){
         return webDriver.findElement(By.xpath(String.format(indicatorNotCurrentPage, indicatorText)));
     }
-
-
-
-
-
-
 
 }

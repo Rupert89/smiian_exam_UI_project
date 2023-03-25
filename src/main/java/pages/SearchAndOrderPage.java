@@ -15,6 +15,7 @@ public class SearchAndOrderPage extends ParentPage {
     private String elementWithTopicText = ".//a[@class='topictitle' and contains(text(), '%s')]";
 
 
+
     private HeaderElement headerElement = new HeaderElement(webDriver);
 
 
@@ -29,19 +30,17 @@ public class SearchAndOrderPage extends ParentPage {
     }
 
 
-//    public HeaderElement getHeaderElement() { return headerElement; }
-
-
-
     public SearchAndOrderPage openSearchAndOrderPage() {
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.openLoginPage();
-        if(!headerElement.isButtonExitDisplayed()) {
-            loginPage.fillingLoginFormWithValidCred();
+        try {
+            webDriver.get(base_url + getRelativeURL());
+            loggerExam.info("SearchANdOrder Page is opened");
+        } catch (Exception e) {
+            loggerExam.error("Can't open SearchANdOrder Page" + e);
+            Assert.fail("Can't open SearchANdOrder Page" + e);
         }
-        checkSearchAndOrderPage();
         return this;
     }
+
     public SearchAndOrderPage checkSearchAndOrderPage() {
         checkURL();
         Assert.assertTrue("SearchAndOrderPage is not loaded", isButtonNewTopicDisplayed());

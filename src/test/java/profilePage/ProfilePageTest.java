@@ -5,10 +5,13 @@ import libs.TestData;
 import org.junit.Test;
 
 public class ProfilePageTest extends BaseTest {
+
     @Test
     public void editingPersonalInformationCheck() {
-        profilePage
-                .openProfilePage()
+        homePage
+                .openHomePage()
+                .getHeaderElement().clickOnProfileButton()
+             .checkIsRedirectToProfilePage()
                 .clickOnEditYourProfileButton()
                 .enterDataIntoOccupationField(TestData.OCCUPATION_TEXT)
                 .clickOnSubmitButton()
@@ -19,8 +22,10 @@ public class ProfilePageTest extends BaseTest {
 
     @Test
     public void emailContactIsVisible() {
-        profilePage
-                .openProfilePage()
+        homePage
+                .openHomePage()
+                .getHeaderElement().clickOnProfileButton()
+             .checkIsRedirectToProfilePage()
                 .clickOnEditYourProfileButton()
                 .clickOnViewEmailYesRadioButton()
                 .clickOnSubmitButton()

@@ -24,7 +24,6 @@ public class RegistrationPage extends ParentPage {
     private WebElement messageNotAvailableLogin;
 
 
-    private HeaderElement headerElement = new HeaderElement(webDriver);
 
 
     public RegistrationPage(WebDriver webDriver) {
@@ -37,7 +36,6 @@ public class RegistrationPage extends ParentPage {
     }
 
 
-    public HeaderElement getHeaderElement() { return headerElement; }
 
 
     public RegistrationPage openRegistrationPage() {
@@ -45,8 +43,8 @@ public class RegistrationPage extends ParentPage {
             webDriver.get(base_url + getRelativeURL());
             loggerExam.info("Toloka Registration Page is opened");
         } catch (Exception e) {
-            loggerExam.error("Can't open Toloka Registration Page" + e); //Write message into log-file + data from Exception
-            Assert.fail("Can't open Toloka Registration Page" + e); //Write message into console + data from Exception
+            loggerExam.error("Can't open Toloka Registration Page" + e);
+            Assert.fail("Can't open Toloka Registration Page" + e);
         }
         return this;
     }

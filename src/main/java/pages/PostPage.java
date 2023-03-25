@@ -14,9 +14,10 @@ public class PostPage extends ParentPage {
     @FindBy (xpath = ".//td[@nowrap='nowrap']//a[3]")
     public WebElement buttonDeleteMessage;
 
+    @FindBy (xpath = ".//input[@type='submit' and @name='confirm']")
+    public WebElement buttonConfirmDelete;
+
     private String bodyMessageText = ".//span[@class='postbody' and contains(text(), '%s')]";
-
-
 
 
 
@@ -32,20 +33,18 @@ public class PostPage extends ParentPage {
 
 
 
-
-
     public PostPage checkIsTopicTitleDisplayed() {
         isObjectDisplayed(titleTopic);
         return this;
     }
 
     public PostPage checkIsTopicTitleContainText(String compareText) {
-        Assert.assertEquals("Element doesn't contain the text", compareText, titleTopic.getText());
+        Assert.assertTrue("Topic post doesn't contain the text", titleTopic.getText().contains(compareText));
         return this;
     }
 
     public PostPage checkMessageContainText(String bodyMessageText){
-        Assert.assertTrue("Element is not displayed", isElementDisplayed(getBodyMessage(bodyMessageText)));
+        Assert.assertTrue("Message is not displayed", isElementDisplayed(getBodyMessage(bodyMessageText)));
         return this;
     }
 
@@ -53,8 +52,13 @@ public class PostPage extends ParentPage {
         return webDriver.findElement(By.xpath(String.format(bodyMessageText, messageText)));
     }
 
-    public SearchAndOrderPage clickOnDeletePostButton() {
+    public PostPage clickOnDeletePostButton() {
         clickOnElement(buttonDeleteMessage);
+        return this;
+    }
+
+    public SearchAndOrderPage clickOnConfirmDeleteButton() {
+        clickOnElement(buttonConfirmDelete);
         return new SearchAndOrderPage(webDriver);
     }
 

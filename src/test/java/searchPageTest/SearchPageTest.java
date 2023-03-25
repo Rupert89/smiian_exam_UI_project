@@ -7,14 +7,15 @@ public class SearchPageTest extends BaseTest {
 
     @Test
     public void nextButtonWorkCheck() {
-        searchPage
-                .openSearchPage()
+        homePage
+                .openHomePage()
+                .getSearchPage().openSearchPage()
+              .checkIsRedirectToSearchPage()
              .checkCurrentIndicatorNumber("1")
                 .clickOnNextButton()
              .checkIsPreviousButtonAppeared()
              .checkCurrentIndicatorNumber("2")
              .checkIsElementContainText("1")
                 ;
-
     }
 }

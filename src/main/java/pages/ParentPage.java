@@ -2,10 +2,8 @@ package pages;
 
 import org.hamcrest.CoreMatchers;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 abstract public class ParentPage extends CommonActionsWithElements {
@@ -26,12 +24,10 @@ abstract public class ParentPage extends CommonActionsWithElements {
      * gooogle.com == gooogle.com -> true
      */
     protected void checkURL() {
+        webDriverWait10.until(ExpectedConditions.urlToBe(base_url + getRelativeURL()));
         Assert.assertEquals("Invalid page", base_url + getRelativeURL() , webDriver.getCurrentUrl());
     }
 
-//    protected  void checkUrlWithWait() {
-//        doWithWait(base_url, getRelativeURL());
-//    }
 
 
     /**

@@ -9,8 +9,10 @@ public class SearchAndOrderTest extends BaseTest {
 
     @Test
     public void newTopicPreviewAndPostCheck() {
-        searchAndOrderPage
-                .openSearchAndOrderPage()
+        homePage
+                .openHomePage()
+                .getSearchAndOrderPage().openSearchAndOrderPage()
+             .checkSearchAndOrderPage()
                 .clickOnNewTopicButton()
                 .enterTopicText(TestData.TOPIC_TEXT)
                 .enterMessageText(TestData.MESSAGE_TEXT)
@@ -29,11 +31,13 @@ public class SearchAndOrderTest extends BaseTest {
 
     @After
     public void deletePost() {
-        profilePage
-                .openProfilePage()
+        homePage
+                .openHomePage()
+                .getHeaderElement().clickOnProfileButton()
                 .clickOnSearchAndOrderDropDownOption()
                 .clickOnElementByTopicTitle(TestData.TOPIC_TEXT)
                 .clickOnDeletePostButton()
+                .clickOnConfirmDeleteButton()
                 ;
     }
 }

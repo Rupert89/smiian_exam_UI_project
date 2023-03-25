@@ -6,6 +6,7 @@ public class TestData {
     public static ConfigHiddenProperties configHiddenProperties = ConfigFactory.create(ConfigHiddenProperties.class);
     public final static String VALID_LOGIN = System.getProperty("login", configHiddenProperties.login());
     public final static String VALID_PASSWORD = System.getProperty("password", configHiddenProperties.password());
+    public final static String PROFILE_RELATIVE_URL = System.getProperty("/u1187289", configHiddenProperties.profileUrl());
 
     public final static String NAME_OF_USER = System.getProperty("nameOfUser", configHiddenProperties.nameOfUser());
     public final static String OCCUPATION_TEXT = System.getProperty("occupationText", configHiddenProperties.occupationText());

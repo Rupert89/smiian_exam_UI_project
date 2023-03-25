@@ -1,5 +1,6 @@
 package pages;
 
+import libs.TestData;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -15,7 +16,7 @@ public class ProfilePage extends ParentPage{
     @FindBy (xpath = ".//option[@value='13']")
     private WebElement dropDownOptionSearchAndOrder;
 
-    @FindBy (xpath = ".getHeaderElement().clickOnProfileButton()")
+    @FindBy (xpath = ".//img[@alt='Відіслати e-mail']//..")
     private WebElement buttonUsersEmail;
 
     private String textAriaOccupation = ".//tbody//tr[6]//td[2]//span[@class='gen' and contains(text(), '%s')]";
@@ -32,23 +33,14 @@ public class ProfilePage extends ParentPage{
 
     @Override
     String getRelativeURL() {
-        return "/u882707";
+        return TestData.PROFILE_RELATIVE_URL;
     }
 
 
 
-    public ProfilePage openProfilePage() {
-        LoginPage loginPage = new LoginPage(webDriver);
-        loginPage.openLoginPage();
-        if(!headerElement.isButtonExitDisplayed()) {
-            loginPage.fillingLoginFormWithValidCred();
-        }
-        checkProfilePage();
-        return this;
-    }
-    public ProfilePage checkProfilePage() {
+    public ProfilePage checkIsRedirectToProfilePage() {
         checkURL();
-        Assert.assertTrue("SearchAndOrderPage is not loaded", isButtonEditProfileDisplayed());
+        Assert.assertTrue("ProfilePage is not loaded", isButtonEditProfileDisplayed());
         return this;
     }
     public boolean isButtonEditProfileDisplayed() {

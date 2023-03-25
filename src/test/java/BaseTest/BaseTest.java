@@ -43,7 +43,7 @@ public class BaseTest {
 
 //        WebDriverManager.chromedriver().setup();   // запуск браузера Хром
 //        webDriver = new ChromeDriver();
-        webDriver.manage().window().maximize();    // відкриваємо вікно на весь екран
+        webDriver.manage().window().maximize();
         webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 
         loginPage = new LoginPage(webDriver);
@@ -63,12 +63,12 @@ public class BaseTest {
         webDriver.quit();
         logger.info("Closed");
 
-        logger.info("------ " + testName.getMethodName() + "was ended------");      // для гарного логування даних по кейсу в кінці логу
+        logger.info("------ " + testName.getMethodName() + "was ended------");
     }
 
 
     @Rule
-    public TestName testName = new TestName();  // працює з 33 та 54
+    public TestName testName = new TestName();
 
     private WebDriver initDriver() {                       //
         String browser = System.getProperty("browser");

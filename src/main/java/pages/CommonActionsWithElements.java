@@ -23,15 +23,15 @@ public class CommonActionsWithElements {
         this.webDriver = webDriver;
         PageFactory.initElements(webDriver, this);
 
-        webDriverWait10 = new WebDriverWait(webDriver, Duration.ofSeconds(configProperties.TIME_FOR_EXPLICIT_WAIT_LOW()));     // додаємо в конструкор драйвери для використання методів очікування
-        webDriverWait15 = new WebDriverWait(webDriver, Duration.ofSeconds(configProperties.TIME_FOR_EXPLICIT_WAIT_HIGH()));    // + підтягуємо дані з config.Properties
+        webDriverWait10 = new WebDriverWait(webDriver, Duration.ofSeconds(configProperties.TIME_FOR_EXPLICIT_WAIT_LOW()));
+        webDriverWait15 = new WebDriverWait(webDriver, Duration.ofSeconds(configProperties.TIME_FOR_EXPLICIT_WAIT_HIGH()));
     }
 
 
 
     protected void enterTextIntoElement(WebElement webElement, String text) {
         try {
-            webDriverWait15.until(ExpectedConditions.visibilityOf(webElement)); //виокористання очікування 15
+            webDriverWait15.until(ExpectedConditions.visibilityOf(webElement));
             webElement.clear();
             webElement.sendKeys(text);
             loggerExam.info(text + " was inputted into element " + getElementName(webElement));
@@ -42,7 +42,7 @@ public class CommonActionsWithElements {
 
     protected void clickOnElement(WebElement webElement){
         try {
-            webDriverWait10.until(ExpectedConditions.elementToBeClickable(webElement));   //виокористання очікування 10
+            webDriverWait10.until(ExpectedConditions.elementToBeClickable(webElement));
             String name = getElementName(webElement);
             webElement.click();
             loggerExam.info(name + " Element was clicked");
@@ -84,18 +84,11 @@ public class CommonActionsWithElements {
         }
     }
 
-//    public WebElement doWithWait (String baseUrl, String relativeUrl) {
-//        webDriverWait10.until(ExpectedConditions.
-//                visibilityOf(Assert.assertEquals("Invalid page",
-//                        baseUrl + relativeUrl , webDriver.getCurrentUrl())));
-//    }
-
-
-
-    public void clickOnRadioButton(WebElement webElement) {
-        if (webElement.getAttribute("checked").equals("checked") == true) {
+    public void clickOnRadioButtonByAttribute(WebElement webElement, String attributeName) {
+        String attributeValue = webElement.getAttribute(attributeName);
+        if (attributeValue == null) {
             webElement.click();
-            loggerExam.info("RadioButton was checked");
+            loggerExam.info("RadioButton was clicked");
         } else {
             loggerExam.info("RadioButton is already checked");
         }
@@ -105,19 +98,7 @@ public class CommonActionsWithElements {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-    protected void printErrorAndStopTest (Exception e) {
+        protected void printErrorAndStopTest (Exception e) {
         loggerExam.error("Can't work with element" + e);
         Assert.fail("Can't work with element" + e);
     }

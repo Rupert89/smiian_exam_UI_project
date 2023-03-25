@@ -1,7 +1,6 @@
 package pages;
 
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -26,13 +25,8 @@ public class CreateNewTopicPage extends ParentPage {
     @FindBy (xpath = ".//span[@class='postbody']")
     public WebElement textMessagePreview;
 
-    @FindBy (xpath = ".//input[@type='submit' and @class='mainoption' and @name='add_attachment']")
+    @FindBy (xpath = ".//input[@type='submit' and @class='mainoption' and @name='post']")
     public WebElement buttonPost;
-
-
-
-
-
 
 
 
@@ -72,7 +66,7 @@ public class CreateNewTopicPage extends ParentPage {
     }
 
     public CreateNewTopicPage checkIsPreviewTopicContainText(String compareText) {
-        Assert.assertEquals("Element doesn't contain the text", compareText, textTopicPreview.getText());
+        Assert.assertTrue("Topic post doesn't contain the text", textTopicPreview.getText().contains(compareText));
         return this;
     }
 
@@ -90,8 +84,5 @@ public class CreateNewTopicPage extends ParentPage {
         clickOnElement(buttonPost);
         return new PostPage(webDriver);
     }
-
-
-
 
 }

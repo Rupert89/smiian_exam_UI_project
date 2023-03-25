@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+
 public class LoginPage extends ParentPage {
 
     @FindBy (xpath = ".//input[@type='text' and @class='post']")
@@ -17,7 +18,7 @@ public class LoginPage extends ParentPage {
     @FindBy (xpath = ".//input[@type='submit' and @name='login']")
     private WebElement buttonLogin;
 
-    @FindBy (xpath = ".//a[@href=\"/login.php?logout=true&sid=f18478b302368d0cf6da7565fbd0b8f9\" and @rel='nofollow']")  // Вихід [ <userName> ]
+    @FindBy (xpath = ".//a[@href=\"/login.php?logout=true&sid=f18478b302368d0cf6da7565fbd0b8f9\" and @rel='nofollow']")
     private WebElement buttonExit;
 
 
@@ -38,8 +39,8 @@ public class LoginPage extends ParentPage {
             webDriver.get(base_url + getRelativeURL());
             loggerExam.info("Toloka LoginPage is opened");
         } catch (Exception e) {
-            loggerExam.error("Can't open Toloka Login Page" + e); //Write message into log-file + data from Exception
-            Assert.fail("Can't open Toloka Login Page" + e); //Write message into console + data from Exception
+            loggerExam.error("Can't open Toloka Login Page" + e);
+            Assert.fail("Can't open Toloka Login Page" + e);
         }
         return this;
     }
