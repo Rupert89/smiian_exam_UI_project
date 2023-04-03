@@ -34,8 +34,6 @@ public class BaseTest {
     protected PostPage postPage;
 
 
-//    protected HeaderElement headerElement;
-
     @Before
     public void setUp() {
         logger.info("-------- " + testName.getMethodName() + " was started --------");  // для гарного логування даних по кейсу на початку логу
