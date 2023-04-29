@@ -76,7 +76,7 @@ public class CommonActionsWithElements {
         }
     }
 
-    public static boolean isObjectDisplayed(WebElement webElement) {
+    public boolean isObjectDisplayed(WebElement webElement) {
         try {
             return webElement.isDisplayed();
         } catch (Exception e) {
